@@ -12,16 +12,11 @@ function cmb_slider($field, $meta) {
         wp_localize_script('cmbslider-admin-script', 'cmbSliderData', array(
             'fieldID' => $field['id'],
             'attachments' => $meta,  
-            'upload_file' => 'Use this file',
-            'remove_image' => 'Remove Image',
-            'remove_file' => 'Remove',
-            'file' => 'File:',
-            'download' => 'Download',
+            
             'ajaxurl' => admin_url('/admin-ajax.php') ,
-            'up_arrow' => '[ ↑ ]&nbsp;',
-            'down_arrow' => '&nbsp;[ ↓ ]',
+            
         ));
-        echo '<input class="cmb_gallery_button" id="_button" type="button" value="Add gallery" />', '<p class="cmb_metabox_description"></p>';
+        echo '<input class="cmb_gallery_button" id="_button" type="button" value="',  _e( 'Add image', 'cmbslider' ) , '" />', '<p class="cmb_metabox_description"></p>';
         echo '<ul class="attach_list_gallery" id="attach-list', $field['id'], '">';
         echo '<div id="cmb-attachment-edit-form" style="display:none;">
               <div  id="cmb-attachment-form"  class="media-sidebar" style="position:static;width:84%;background:transparent;border:none;">
@@ -44,7 +39,7 @@ function cmb_slider($field, $meta) {
                     <textarea  id="cmb-att-description"></textarea>
                 </label>
                 <div class="media-toolbar-primary">
-                   <a id="cmb-save-att-button" href="#" style="color:#FFF;" class="button media-button button-primary button-large media-button-select">',  _e( 'Shrani', 'cmbslider' ) , '</a>
+                   <a id="cmb-save-att-button" href="#" style="color:#FFF;" class="button media-button button-primary button-large media-button-select">',  _e( 'Save', 'cmbslider' ) , '</a>
                     <input  id="cmb-att-id" type="hidden" value="">
                      <input  id="cmb-att-nonce" type="hidden" value="">
                   </div>
@@ -80,7 +75,7 @@ function cmb_slider_metaboxes(array $meta_boxes) {
             $prefix = 'cmbslider_';
             $meta_boxes[] = array(
                 'id' => 'gallery-portfolio-meta',
-                'title' => 'Gallery',
+                'title' => __( 'CMB Slider', 'cmbslider' ) ,
                 'pages' =>  $pages ,
                 'context' => 'normal',
                 'priority' => 'high',

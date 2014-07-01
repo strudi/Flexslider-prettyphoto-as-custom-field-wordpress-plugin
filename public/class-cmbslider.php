@@ -25,6 +25,7 @@
 require_once( plugin_dir_path( __FILE__ ) . 'includes/interface-template.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-prettyphoto-template.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-flexslider-template.php' );
+
 class cmbSlider {
 
 	/**
@@ -57,7 +58,7 @@ class cmbSlider {
 	private $output_type = "";
 
 	private $attachment_ids = array();
-
+    public $is_shortcode  = false;
 	protected $plugin_slug = 'cmbslider';
     private $template_handler = null;
 	/**
@@ -374,23 +375,41 @@ class cmbSlider {
 	}
 }
 
-	function cmb_show_slider()
-	{       
-	    $plugin = cmbSlider::get_instance();
-		$plugin->render_output();
-		   		   
+function cmb_show_slider()
+{       
+	global $post;
+
+	if( is_a( $post, 'WP_Post' ) && !has_shortcode( $post->post_content, 'cmb_slider') ) {
+		  $plugin = cmbSlider::get_instance();
+	      $plugin->render_output();
 	}
-
-	function wp_get_attachment( $attachment_id ) {
-
-    $attachment = get_post( $attachment_id );
-    return (object) array(
-        'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
-        'caption' => $attachment->post_excerpt,
-        'description' => $attachment->post_content,
-        'href' => get_permalink( $attachment->ID ),
-        'src' => $attachment->guid,
-        'title' => $attachment->post_title)
-    ;
+  
+	   		   
 }
+
+function wp_get_attachment( $attachment_id ) {
+
+	$attachment = get_post( $attachment_id );
+	return (object) array(
+	    'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+	    'caption' => $attachment->post_excerpt,
+	    'description' => $attachment->post_content,
+	    'href' => get_permalink( $attachment->ID ),
+	    'src' => $attachment->guid,
+	    'title' => $attachment->post_title)
+	;
+}
+
+function cmb_show_slider_shortcode()
+{       
+	 ob_start(); // Start buffering
+     
+    $plugin = cmbSlider::get_instance();
+	$plugin->render_output();
+
+	$output = ob_get_clean();
+	return $output;
+	   		   
+}
+add_shortcode( 'cmb_slider', 'cmb_show_slider_shortcode' );
    
