@@ -8,7 +8,7 @@ table.cmb_metabox li.medo-gallery-image
 {
 	height: 150px;
 	width:150px;
-	margin: 3px 3px 3px 3px;
+	margin: 13px 15px 13px 15px;
 	padding: 5px;
 	padding-bottom: 20px;
 	float: left;
@@ -34,4 +34,19 @@ table.cmb_metabox li.medo-gallery-image a {
 }
 table.cmb_metabox li.medo-gallery-image a.cmbSliderThickboxLink{
     right: 45%;
+}
+table.cmb_metabox li.ui-state-highlight {
+	 height: 150px;
+	width: 150px;
+	margin: 13px 15px 13px 15px;
+	padding: 5px;
+	padding-bottom: 20px;
+	float: left;
+	font-size: 4em;
+	text-align: center;
+	border: 1px solid #d3d3d3;
+	display: block;
+	background: #ececec;
+	position: relative;
+	overflow: hidden;
 }

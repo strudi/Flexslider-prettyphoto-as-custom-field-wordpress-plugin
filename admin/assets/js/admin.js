@@ -14,9 +14,9 @@
                     var thisButton = this;
                     e.preventDefault();
                     var custom_uploader = wp.media({
-                        title: 'Create gallery',
+                        title:  cmbSliderData.editor_title,
                         button: {
-                            text: 'Shrani galerijo'
+                            text: cmbSliderData.save_button
                         },
                         multiple: true // Set this to true to allow multiple files to be selected
                     }).on('select', function() {
@@ -96,7 +96,8 @@
                 jQuery(".attach_list_gallery").sortable({
                     update: function(event, ui) {
                         //  rebuildGalleryIndex($(this));
-                    }
+                    },
+                    placeholder: "ui-state-highlight"
                 });
             }
 

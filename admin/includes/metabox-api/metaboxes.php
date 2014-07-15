@@ -12,7 +12,8 @@ function cmb_slider($field, $meta) {
         wp_localize_script('cmbslider-admin-script', 'cmbSliderData', array(
             'fieldID' => $field['id'],
             'attachments' => $meta,  
-            
+            'save_button' =>  __( 'Add images', 'cmbslider' ),
+            'editor_title' =>  __( 'Gallery', 'cmbslider' ),
             'ajaxurl' => admin_url('/admin-ajax.php') ,
             
         ));
