@@ -1,4 +1,4 @@
-Fexslider /prettyphoto as custom field wordpress plugin
+Flexslider /prettyphoto as custom field wordpress plugin
 =======================================================
 
 
