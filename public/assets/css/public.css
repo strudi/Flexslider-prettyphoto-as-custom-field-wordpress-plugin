@@ -13,3 +13,32 @@
 	height: auto;
 	margin-right: 3px;
 }
+
+.flex-caption {
+
+	position: absolute;
+	bottom: 0;
+	padding: 10px 10px 0 10px;
+	background: rgba(0,0,0,0.75);
+	color:#fafafa;
+	width: 100%;
+	max-width: 842px;
+
+
+}
+
+.flex-caption p {
+
+	border-top: 1px solid #666;
+	padding-top: 5px;
+	margin-top: 5px;
+	margin-bottom: 7px;
+}
+
+.flex-caption h3 {
+
+	color:#fafafa;
+	text-transform: uppercase;
+	margin:0;
+	padding: 0;
+}
