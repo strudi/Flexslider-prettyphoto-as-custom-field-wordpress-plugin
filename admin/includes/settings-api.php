@@ -76,7 +76,18 @@ class WeDevs_Settings {
                     'default' => 'post',
                     'options' => get_post_types()
                 ),
-                 
+                 array(
+                    'name' => 'type1_cmb_slider',
+                    'label' => __( 'Default template', 'cmbslider' ),
+                    'desc' => __( 'Show slider or gallery', 'cmbslider' ),
+                    'type' => 'radio',
+                    'default' => '1',
+                    'options' => array(
+                        '1' => 'Slider',
+                        '2' => 'Gallery'
+                    )
+                ), 
+                
             ),
              'cmb_gallery_settings' => array(            
                 
@@ -114,8 +125,30 @@ class WeDevs_Settings {
                     'desc' => __( 'Seconds between slide transition', 'cmbslider' ),
                     'type' => 'select',
                     'default' => 6,
-                    'options' => array_combine(range(1,15),range(1,15))
+                    'options' => array_combine(range(1000,15000,1000),range(1,15))
                 ),
+                 array(
+                    'name' => 'effect_cmb_slider',
+                    'label' => __( 'Slide effect', 'cmbslider' ),
+                   
+                    'type' => 'select',
+                    'default' => 'slide',
+                    'options' =>array(
+                        "slide" => "Slide",
+                        "fade"  => "Fade"
+                        )
+                ), 
+                 array(
+                    'name' => 'caption_cmb_slider',
+                    'label' => __( 'Show caption', 'cmbslider' ),
+                    'desc' => __( 'Show caption on the slider ?', 'cmbslider' ),
+                    'type' => 'radio',
+                    'default' => 'no',
+                    'options' => array(
+                        'yes' => 'Yes',
+                        'no' => 'No'
+                    )
+                ), 
             )
         );
 

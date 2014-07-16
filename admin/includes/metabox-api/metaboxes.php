@@ -71,7 +71,8 @@ add_filter('cmb_meta_boxes', 'cmb_slider_metaboxes');
 function cmb_slider_metaboxes(array $meta_boxes) {
         $slider_admin = cmbSlider_Admin::get_instance();
         $pages = $slider_admin->settings_api->get_option('post_types_cmb_slider', 'cmb_slider_general');
-
+        $type = $slider_admin->settings_api->get_option('type1_cmb_slider', 'cmb_slider_general','1');
+      
         if(is_array($pages)){
             $prefix = 'cmbslider_';
             $meta_boxes[] = array(
@@ -92,6 +93,7 @@ function cmb_slider_metaboxes(array $meta_boxes) {
                         'name' => 'Type',
                         'id' =>  cmbSlider::META_FIELD_TYPE ,
                         'type' => 'radio',
+                        'default' => $type,
                         'options' => array(
                             '1' => __('Slider', 'cmbslider') ,
                             '2' => __('Gallery', 'cmbslider') ,
