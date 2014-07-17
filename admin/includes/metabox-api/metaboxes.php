@@ -19,6 +19,9 @@ function cmb_slider($field, $meta) {
         ));
         echo '<input class="cmb_gallery_button" id="_button" type="button" value="',  _e( 'Add image', 'cmbslider' ) , '" />', '<p class="cmb_metabox_description"></p>';
         echo '<ul class="attach_list_gallery" id="attach-list', $field['id'], '">';
+       
+    
+        echo '</ul>';
         echo '<div id="cmb-attachment-edit-form" style="display:none;">
               <div  id="cmb-attachment-form"  class="media-sidebar" style="position:static;width:84%;background:transparent;border:none;">
               <label class="setting" data-setting="title">
@@ -46,24 +49,6 @@ function cmb_slider($field, $meta) {
                   </div>
                 </div>
                 </div>';
-      /*  if (!empty($meta)) {
-            $idx = 0;
-            
-            foreach ($meta as $attr_id) {
-                if (intval($attr_id) != 0) {
-                    $att_attr = wp_get_attachment_image_src($attr_id, 'thumbnail');
-                    echo '<li data-attid="' . $attr_id . '"  class="ui-state-default medo-gallery-image" >';
-                    echo '<a class="cmb_remove_cmb_gallery" href="#">' . _("Remove") . '</a>';
-                    echo '<img src="' . $att_attr[0] . '"/>';
-                    echo '<input class="cmb_gallery" type="hidden"  id="' . $field['id'] . '_' . $attr_id . '" name="' . $field['id'] . '[]" value="', $attr_id, '" />';
-                    echo '<div id="cmb-slider-thick-content-' . $field['id'] . '" style="display:none;">';
-                    echo ' </div>';
-                    echo '<a data-thick-content-slider="cmb-slider-thick-content-' . $field['id'] . '" href="#" class="cmbSliderThickboxLink">' . _("Caption") . '</a></li>';
-                    $idx++;
-                }
-            }
-        }*/
-        echo '</ul>';
      }
 }
 add_action('cmb_render_cmb_slider', 'cmb_slider', 10, 2);
@@ -74,7 +59,7 @@ function cmb_slider_metaboxes(array $meta_boxes) {
         $type = $slider_admin->settings_api->get_option('type1_cmb_slider', 'cmb_slider_general','1');
       
         if(is_array($pages)){
-            $prefix = 'cmbslider_';
+         
             $meta_boxes[] = array(
                 'id' => 'gallery-portfolio-meta',
                 'title' => __( 'CMB Slider', 'cmbslider' ) ,
