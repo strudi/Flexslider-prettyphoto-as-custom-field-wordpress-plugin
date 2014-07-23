@@ -28,31 +28,36 @@
                 });
             }
 
-            function appendItems(data) {
+            function appendItems( data ) {
                 $.each(data.attachments, function(i, attachment) {
                     appendItem(attachment);
                 });
             }
 
-            function appendItem(attachment) {
+            function appendItem( attachment ) {
                 var url;
                 url = attachment.sizes.thumbnail ? attachment.sizes.thumbnail.url : attachment.sizes.full.url;
 
                 $itemsPlaceholder.prepend('<li  class="ui-state-default medo-gallery-image"> \
-                               <a class="cmb_remove_cmb_gallery" href="#"> \
-                               Odstrani \
-                               </a>  \
-                               <img width="150" id="theImg" src="' + url + '" /> \
-                               <input class="cmb_gallery" type="hidden" id="prt_port_gal-' + cmbSliderData.fieldID + '" \
-                                 name="' + cmbSliderData.fieldID + '[]" value="' + attachment.id + '" /> \
-                             <a data-attachment-id="' + attachment.id + '" href="#"   \
-                             class="cmbSliderThickboxLink">Caption</a> \
-                               </li> \
+                       <div class="cmb-gallery-thumb-wrapper"> \
+                           <img width="150" id="theImg" src="' + url + '" /> \
+                           <input class="cmb_gallery" type="hidden" id="prt_port_gal-' + cmbSliderData.fieldID + '" \
+                             name="' + cmbSliderData.fieldID + '[]" value="' + attachment.id + '" /> \
+                           <div class="cmb-gallery-overlay"> \
+                                <div class="cmb-gallery-move-icon dashicons dashicons-editor-expand"></div> \
+                                 <div data-attachment-id="' + attachment.id + '"    \
+                                 class="cmb-gallery-edit-icon cmbSliderThickboxLink dashicons dashicons-edit"></div> \
+                                  <div class="cmb-gallery-delete-icon dashicons dashicons-trash cmb_remove_cmb_gallery" > \
+                                      Odstrani \
+                                 </div>  \
+                            </div> \
+                       </div> \
+                     </li> \
                    ');
             }
 
             function WPThickboxForCaption() {
-                $itemsPlaceholder.on("click", "a.cmbSliderThickboxLink", function() {
+                $itemsPlaceholder.on("click", ".cmbSliderThickboxLink", function() {
 
                     $(':input', '#cmb-attachment-edit-form')
                         .not(':button, :submit, :reset')
@@ -156,16 +161,18 @@
                     $itemsPlaceholder.on("addGalleryFieldItems", function(event, data) {
                         cmbSlider.append(data);
                     });
-                    $itemsPlaceholder.on('click', 'a#cmb-save-att-button', function() {
+                    $itemsPlaceholder.on('click', 'a#cmb-save-att-button', function(event) {
+                        event.preventDefault();
                         tb_remove();
                         updateAttCaption();
+                        return false;
                     });
                     $('#cmb-save-att-button').live('click', function() {
                         tb_remove();
                         updateAttCaption();
                     });
                     $('.cmb_remove_cmb_gallery').live('click', function() {
-                        $(this).parent().remove();
+                        $(this).parent().parent().parent().remove();
                         return false;
                     });
                     $('.add_media').on('click', function() {
