@@ -8,7 +8,7 @@
     
      if ($src_attr): ?>  
 
-		<a href="<?php echo $src_large[0] ?>" rel="prettyPhoto[medo_gal]" title="<?php echo $attachment->title ?>"><img  class="img-thumbnail" alt="<?php echo $attachment->title ?>" src="<?php echo $src_attr[0] ?>" alt="" /></a>
+		<a href="<?php echo $src_large[0] ?>" rel="prettyPhoto[medo_gal]" title="<?php echo $attachment->title ?>"><?php echo	wp_get_attachment_image( $attr_id ,$this->plugin->get_option('img_size_cmb_pretty_thumb', 'cmb_gallery_settings'),array('class' => 'img-thumbnail')); ?></a>
 					
 	<?php
    endif;

@@ -5,8 +5,8 @@
 									
 		<?php foreach($this->plugin->get_attachment_ids()  as $attr_id) :  			
 			
-		   $attachment = wp_get_attachment( $attr_id );
-		    if ($src_attr): ?>			  
+		   $attachment = wp_get_attachment( $attr_id ); ?>
+		   		  
 				<li>
 					<?php echo	wp_get_attachment_image( $attr_id ,$this->plugin->get_option('img_size_cmb_slide_large', 'cmb_slider_settings')); ?>
 					<?php if( $this->plugin->get_option('caption_cmb_slider', 'cmb_slider_settings') == 'yes'  ): ?>
@@ -17,10 +17,7 @@
 			    	<?php endif; ?>
 				</li>
 		
-		<?php 
-			endif;
-		    endforeach;
-	    ?>
+		<?php  endforeach; ?>
 
 	</ul>
 
