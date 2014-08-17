@@ -8,19 +8,14 @@ table.cmb_metabox li.medo-gallery-image
 {
 	height: 150px;
 	width:150px;
-	margin: 13px 15px 13px 15px;
+	margin: 3px 3px 3px 3px;
 	padding: 5px;
-
-border: 1px solid #DFDFDF;
-background: #FAFAFA;
-
--moz-border-radius: 2px;
-border-radius: 2px;
-
-	float: left;
-		
-text-align: left;
-	
+	border: 1px solid #DFDFDF;
+	background: #FAFAFA;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	float: left;		
+    text-align: left;	
 	position: relative;
 	overflow: hidden;
 }
@@ -40,21 +35,16 @@ table.cmb_metabox li.medo-gallery-image a.cmbSliderThickboxLink{
     right: 45%;
 }
 table.cmb_metabox li.ui-state-highlight {
-		height: 150px;
+	height: 150px;
 	width:150px;
-	margin: 13px 15px 13px 15px;
+	margin: 3px 3px 3px 3px;
 	padding: 5px;
-
-	float: left;
-	
+	float: left;	
     text-align: left;
 	border: 1px solid #DFDFDF;
     background: #FAFAFA;
-
     -moz-border-radius: 2px;
-    border-radius: 2px;
-
-	
+    border-radius: 2px;	
 	overflow: hidden;
 }
 .cmb-gallery-thumb-wrapper{

@@ -351,8 +351,7 @@ class cmbSlider {
         global $post;
        
         if (isset($post))
-        {
-		  
+        {	  
 			
 		    $this->output_type =	 get_post_meta($post->ID, cmbSlider::META_FIELD_TYPE , true);
 		    $this->attachment_ids =  get_post_meta($post->ID, cmbSlider::META_FIELD_ATTACHMENTS , true);
