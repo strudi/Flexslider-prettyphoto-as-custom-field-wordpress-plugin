@@ -81,7 +81,7 @@ if (!class_exists('WeDevs_Settings')):
                         'desc' => __('Where to show the gallery', 'cmbslider') ,
                         'type' => 'multicheck',
                         'default' => 'post',
-                        'options' => get_post_types()
+                        'options' => get_post_types(array('public' => true))
                     ) ,
                     array(
                         'name' => 'type1_cmb_slider',
